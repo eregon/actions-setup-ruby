@@ -57,6 +57,16 @@ async function downloadTruffleRuby(version: string): Promise<string> {
     await exec.exec('sudo', ['apt-get', 'install', '-y', 'clang', 'llvm']);
   } else if (platform == 'darwin') {
     await exec.exec('brew', ['install', 'llvm@4']);
+
+    let sdkroot = '';
+    await exec.exec('xcrun', ['--sdk', 'macosx', '--show-sdk-path'], {
+      listeners: {
+        stdline: line => {
+          sdkroot = line.trimRight();
+        }
+      }
+    });
+    core.exportVariable('SDKROOT', sdkroot);
   }
 
   // Run the post-install hook

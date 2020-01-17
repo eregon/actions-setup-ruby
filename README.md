@@ -4,10 +4,17 @@
   <a href="https://github.com/actions/setup-ruby"><img alt="GitHub Actions status" src="https://github.com/actions/setup-ruby/workflows/Main%20workflow/badge.svg"></a>
 </p>
 
-This action sets up a ruby environment for use in actions by:
+This action sets up Ruby for use in actions by adding a version of Ruby already existing in the toolcache to the PATH.
 
-- optionally installing a version of ruby and adding to PATH. Note that this action only uses versions of Ruby already installed in the cache. The action will fail if no matching versions are found.
-- registering problem matchers for error output
+This action currently only supports versions of Ruby in the toolcache.
+See [this list](https://github.com/actions/virtual-environments/blob/master/images/linux/Ubuntu1804-README.md) for the available Ruby versions.
+The action will fail if no matching versions are found.
+
+Because versions in the toolcache are updated over time, it is necessary to use a version range such as `2.6.x` and not exact versions.
+
+If you are looking for using exact versions (e.g., `2.6.5`) of Ruby,
+please take a look at other actions such as [use-ruby-action](https://github.com/eregon/use-ruby-action).
+Note that there are [plans](https://github.com/actions/setup-ruby/issues/44) to support installing prebuilt Rubies with this action in the future.
 
 # Usage
 

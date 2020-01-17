@@ -4,17 +4,12 @@
   <a href="https://github.com/actions/setup-ruby"><img alt="GitHub Actions status" src="https://github.com/actions/setup-ruby/workflows/Main%20workflow/badge.svg"></a>
 </p>
 
-This action sets up Ruby for use in actions by adding to the `PATH` a version of Ruby already existing in the toolcache.
-The toolcache is the set of tools preinstalled in [virtual environments](https://github.com/actions/virtual-environments).
+This action sets up Ruby for use in actions by adding Ruby to the `PATH`.
+This action only supports Ruby versions already installed in the virtual environments ([Ubuntu](https://github.com/actions/virtual-environments/blob/master/images/linux/Ubuntu1804-README.md), [macOS](https://github.com/actions/virtual-environments/blob/master/images/macos/macos-10.15-Readme.md), [Windows](https://github.com/actions/virtual-environments/blob/master/images/win/Windows2019-Readme.md)).
+Because Ruby versions in the virtual environments are updated over time, it is **necessary to use a version range** such as `2.6.x` and not exact versions.
+Note that the lists of versions above might not always reflect the current versions as changes are rolled out over several days.
 
-This action currently only supports versions of Ruby in the toolcache.
-See [this list](https://github.com/actions/virtual-environments/blob/master/images/linux/Ubuntu1804-README.md) for the available Ruby versions.
-Note that the list might not always reflect the current versions as changes are rolled out over several days.
-The action will fail if no matching versions are found.
-
-Because versions in the toolcache are updated over time, it is **necessary to use a version range** such as `2.6.x` and not exact versions.
-
-If you are looking for using exact versions (e.g., `2.6.5`) of Ruby, or to use JRuby or TruffleRuby,
+If you want to use exact versions (e.g., `2.6.5`) of Ruby, or to use JRuby or TruffleRuby,
 please take a look at other actions such as [use-ruby-action](https://github.com/eregon/use-ruby-action).
 Note that there are [plans](https://github.com/actions/setup-ruby/issues/44) to support installing prebuilt Rubies with this action in the future.
 
